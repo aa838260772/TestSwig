@@ -15,4 +15,14 @@ router.get('/test', function(req, res, next) {
 			{ name: 'Jimmy', age: 45 }
 			]});
 		});
+
+router.get('/frame',function(req, res,next) {
+	res.render('frame', {title: 'iframe'}
+	)	
+});
+
+router.get('/login', function(req, res, next) {
+	res.render('login', {title: 'Big Dog'}
+	)
+});
 module.exports = router;
