@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
 		});
 
 router.get('/test', function(req, res, next) {
-//		console.log(req);
 		res.render('test', {title: 'help',
 			people: [
 			{ name: 'Paul', age: 28 },
@@ -21,8 +20,4 @@ router.get('/frame',function(req, res,next) {
 	)	
 });
 
-router.get('/login', function(req, res, next) {
-	res.render('login', {title: 'Big Dog'}
-	)
-});
 module.exports = router;

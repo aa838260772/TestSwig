@@ -8,6 +8,8 @@ var swig = require('swig')
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
+var upload = require('./routes/upload');
+var multer = require('multer');
 
 var app = express();
 
@@ -23,11 +25,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static('public'));
+app.use(multer({
+  dest: path.join(__dirname, 'public/images')
+}).any());
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
+app.use('/upload', upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
